@@ -27,18 +27,16 @@ if(window.location.href.indexOf("db_search.php") != -1){
     }
     GM_wait();
     
-    var SearchLoop;
-		function checkForSearch(){
+    function checkForSearch(){
     	if($(".noclick").length){
         $(".noclick").each(function(){ $(this).hide(); });
       	$(".noclick td a").each(function(){ $(this).parents('tr').show(); });
-        clearInterval(SearchLoop);
       }
     }
     
     function MainFunction(){
       console.log("Loaded at PhpMyAdmin - Search Page");
-      SearchLoop = window.setInterval(function(){ checkForSearch($); },500);
+      window.setInterval(function(){ checkForSearch($); },500);
     }
     
   })();
